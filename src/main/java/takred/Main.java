@@ -19,32 +19,32 @@ public class Main {
     public static String a(int squadSize, List<AbundanceConfiguration> titleList) {
         int index = 0;
         if (squadSize < 10) {
-            return titleList.get(index).getTitleSquadSize();
+            return titleList.get(index).getTitle();
         }
         index = index + 1;
         if (squadSize < 30) {
-            return titleList.get(index).getTitleSquadSize();
+            return titleList.get(index).getTitle();
         }
         index = index + 1;
         if (squadSize < 50) {
-            return titleList.get(index).getTitleSquadSize();
+            return titleList.get(index).getTitle();
         }
         index = index + 1;
         if (squadSize < 100) {
-            return titleList.get(index).getTitleSquadSize();
+            return titleList.get(index).getTitle();
         }
         index = index + 1;
         if (squadSize < 500) {
-            return titleList.get(index).getTitleSquadSize();
+            return titleList.get(index).getTitle();
         }
         index = index + 1;
-        return titleList.get(index).getTitleSquadSize();
+        return titleList.get(index).getTitle();
     }
 
     public static void main(String[] args) {
         List<AbundanceConfiguration> titleList = new ArrayList<>(graduationTitleSquadSize());
         int squadSize = 23;
-        String titleSquadSize = a(squadSize, titleList);
-        System.out.println(titleSquadSize);
+        String title = a(squadSize, titleList);
+        System.out.println(title);
     }
 }

@@ -1,16 +1,16 @@
 package takred;
 
 public class AbundanceConfiguration {
-    private final String titleSquadSize;
+    private final String title;
     private final int squadSize;
 
-    public AbundanceConfiguration(String titleSquadSize, int squadSize) {
-        this.titleSquadSize = titleSquadSize;
+    public AbundanceConfiguration(String title, int squadSize) {
+        this.title = title;
         this.squadSize = squadSize;
     }
 
-    public String getTitleSquadSize() {
-        return titleSquadSize;
+    public String getTitle() {
+        return title;
     }
 
     public int getSquadSize() {
