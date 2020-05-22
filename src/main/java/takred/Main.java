@@ -1,29 +1,49 @@
 package takred;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
-    public static String a(int squadSize) {
+    public static List<String> graduationTitleSquadSize() {
+        List<String> titleList = new ArrayList<>();
+        titleList.add("Мало");
+        titleList.add("Нормально");
+        titleList.add("Толпа");
+        titleList.add("Орда");
+        titleList.add("Легион");
+        return titleList;
+    }
+
+    public static String a(int squadSize, List<String> titleList) {
+        int index = 0;
         if (squadSize < 10) {
-            return "Мало";
+            return titleList.get(index);
         }
+        index = index + 1;
         if (squadSize < 30) {
-            return "Нормально";
+            return titleList.get(index);
         }
+        index = index + 1;
         if (squadSize < 50) {
-            return "Много";
+            return titleList.get(index);
         }
+        index = index + 1;
         if (squadSize < 100) {
-            return "Толпа";
+            return titleList.get(index);
         }
+        index = index + 1;
         if (squadSize < 500) {
-            return "Орда";
+            return titleList.get(index);
         }
-        return "Легион";
+        index = index + 1;
+        return titleList.get(index);
     }
 
     public static void main(String[] args) {
+        List<String> titleList = new ArrayList<>(graduationTitleSquadSize());
         int squadSize = 23;
-        String titleSquadSize = a(squadSize);
+        String titleSquadSize = a(squadSize, titleList);
         System.out.println(titleSquadSize);
     }
 }
