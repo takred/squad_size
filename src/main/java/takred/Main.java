@@ -5,18 +5,18 @@ import java.util.List;
 
 public class Main {
 
-    public static List<Class> graduationTitleSquadSize() {
-        List<Class> titleList = new ArrayList<>();
-        titleList.add(new Class("Мало", 10));
-        titleList.add(new Class("Нормально", 30));
-        titleList.add(new Class("Толпа", 50));
-        titleList.add(new Class("Свора", 100));
-        titleList.add(new Class("Орда", 500));
-        titleList.add(new Class("Легион", 2000));
+    public static List<AbundanceConfiguration> graduationTitleSquadSize() {
+        List<AbundanceConfiguration> titleList = new ArrayList<>();
+        titleList.add(new AbundanceConfiguration("Мало", 10));
+        titleList.add(new AbundanceConfiguration("Нормально", 30));
+        titleList.add(new AbundanceConfiguration("Толпа", 50));
+        titleList.add(new AbundanceConfiguration("Свора", 100));
+        titleList.add(new AbundanceConfiguration("Орда", 500));
+        titleList.add(new AbundanceConfiguration("Легион", 2000));
         return titleList;
     }
 
-    public static String a(int squadSize, List<Class> titleList) {
+    public static String a(int squadSize, List<AbundanceConfiguration> titleList) {
         int index = 0;
         if (squadSize < 10) {
             return titleList.get(index).getTitleSquadSize();
@@ -42,7 +42,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        List<Class> titleList = new ArrayList<>(graduationTitleSquadSize());
+        List<AbundanceConfiguration> titleList = new ArrayList<>(graduationTitleSquadSize());
         int squadSize = 23;
         String titleSquadSize = a(squadSize, titleList);
         System.out.println(titleSquadSize);

@@ -1,10 +1,10 @@
 package takred;
 
-public class Class {
+public class AbundanceConfiguration {
     private final String titleSquadSize;
     private final int squadSize;
 
-    public Class(String titleSquadSize, int squadSize) {
+    public AbundanceConfiguration(String titleSquadSize, int squadSize) {
         this.titleSquadSize = titleSquadSize;
         this.squadSize = squadSize;
     }
