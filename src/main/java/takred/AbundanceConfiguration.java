@@ -18,29 +18,4 @@ public class AbundanceConfiguration {
     public int getSquadSize() {
         return squadSize;
     }
-
-    public String a(int squadSize, List<AbundanceConfiguration> titleList) {
-        int index = 0;
-        if (squadSize < titleList.get(index).getSquadSize()) {
-            return titleList.get(index).getTitle();
-        }
-        index = index + 1;
-        if (squadSize < titleList.get(index).getSquadSize()) {
-            return titleList.get(index).getTitle();
-        }
-        index = index + 1;
-        if (squadSize < titleList.get(index).getSquadSize()) {
-            return titleList.get(index).getTitle();
-        }
-        index = index + 1;
-        if (squadSize < titleList.get(index).getSquadSize()) {
-            return titleList.get(index).getTitle();
-        }
-        index = index + 1;
-        if (squadSize < titleList.get(index).getSquadSize()) {
-            return titleList.get(index).getTitle();
-        }
-        index = index + 1;
-        return titleList.get(index).getTitle();
-    }
 }
