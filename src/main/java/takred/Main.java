@@ -19,53 +19,11 @@ public class Main {
         return "Какая-то фигня.";
     }
 
-    public static List<AbundanceConfiguration> getSortAscending(List<AbundanceConfiguration> titleList) {
-        List<AbundanceConfiguration> sortTitleList = new ArrayList<>();
-        AbundanceConfiguration firstElement = new AbundanceConfiguration(titleList.get(0));
-        for (int i = 0; i < titleList.size(); i++) {
-            AbundanceConfiguration abundanceConfiguration = titleList.get(i);
-            if (abundanceConfiguration.getSquadSize() < firstElement.getSquadSize()) {
-                firstElement = new AbundanceConfiguration(abundanceConfiguration);
-            }
-        }
-        sortTitleList.add(firstElement);
-
-        for (int i = 1; i < titleList.size(); i++) {
-            AbundanceConfiguration currentElement = new AbundanceConfiguration(null, Integer.MAX_VALUE);
-            for (int j = 0; j < titleList.size(); j++) {
-                int squadSize = titleList.get(j).getSquadSize();
-                if (squadSize > sortTitleList.get(i - 1).getSquadSize()
-                        && squadSize < currentElement.getSquadSize()) {
-                    currentElement = new AbundanceConfiguration(titleList.get(j));
-                }
-            }
-            sortTitleList.add(currentElement);
-        }
-        return sortTitleList;
-    }
-
-    public static List<AbundanceConfiguration> sort(List<AbundanceConfiguration> titleList) {
-        boolean indicator = true;
-        while (indicator) {
-            indicator = false;
-            for (int i = 0; i < titleList.size() - 1; i++) {
-                AbundanceConfiguration currentElement = titleList.get(i);
-                AbundanceConfiguration nextElement = titleList.get(i + 1);
-                if (currentElement.getSquadSize() > nextElement.getSquadSize()) {
-                    AbundanceConfiguration element = new AbundanceConfiguration(currentElement);
-                    titleList.set(i, nextElement);
-                    titleList.set(i + 1, element);
-                    indicator = true;
-                }
-            }
-        }
-        return titleList;
-    }
-
     public static void main(String[] args) {
         GraduationTitleSquadSize titleList = new GraduationTitleSquadSize();
+        titleList.sort();
         int squadSize = 23;
-        String title = getTitleBySquadSize(squadSize, sort(titleList.getAbundanceConfigurations()));
+        String title = getTitleBySquadSize(squadSize, titleList.getAbundanceConfigurations());
         System.out.println(title);
     }
 }

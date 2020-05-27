@@ -23,4 +23,21 @@ public class GraduationTitleSquadSize {
     public List<AbundanceConfiguration> getAbundanceConfigurations() {
         return abundanceConfigurations;
     }
+
+    public void sort() {
+        boolean indicator = true;
+        while (indicator) {
+            indicator = false;
+            for (int i = 0; i < this.abundanceConfigurations.size() - 1; i++) {
+                AbundanceConfiguration currentElement = this.abundanceConfigurations.get(i);
+                AbundanceConfiguration nextElement = this.abundanceConfigurations.get(i + 1);
+                if (currentElement.getSquadSize() > nextElement.getSquadSize()) {
+                    AbundanceConfiguration element = new AbundanceConfiguration(currentElement);
+                    this.abundanceConfigurations.set(i, nextElement);
+                    this.abundanceConfigurations.set(i + 1, element);
+                    indicator = true;
+                }
+            }
+        }
+    }
 }
