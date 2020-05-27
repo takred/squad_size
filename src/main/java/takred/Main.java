@@ -44,10 +44,28 @@ public class Main {
         return sortTitleList;
     }
 
+    public static List<AbundanceConfiguration> sort(List<AbundanceConfiguration> titleList) {
+        boolean indicator = true;
+        while (indicator) {
+            indicator = false;
+            for (int i = 0; i < titleList.size() - 1; i++) {
+                AbundanceConfiguration currentElement = titleList.get(i);
+                AbundanceConfiguration nextElement = titleList.get(i + 1);
+                if (currentElement.getSquadSize() > nextElement.getSquadSize()) {
+                    AbundanceConfiguration element = new AbundanceConfiguration(currentElement);
+                    titleList.set(i, nextElement);
+                    titleList.set(i + 1, element);
+                    indicator = true;
+                }
+            }
+        }
+        return titleList;
+    }
+
     public static void main(String[] args) {
         GraduationTitleSquadSize titleList = new GraduationTitleSquadSize();
         int squadSize = 23;
-        String title = getTitleBySquadSize(squadSize, getSortAscending(titleList.getAbundanceConfigurations()));
+        String title = getTitleBySquadSize(squadSize, sort(titleList.getAbundanceConfigurations()));
         System.out.println(title);
     }
 }
