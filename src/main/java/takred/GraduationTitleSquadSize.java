@@ -40,4 +40,19 @@ public class GraduationTitleSquadSize {
             }
         }
     }
+
+    public String getTitleBySquadSize(int squadSize) {
+        for (int i = 0; i < abundanceConfigurations.size(); i++) {
+            System.out.print("Title = " + abundanceConfigurations.get(i).getTitle() + " ");
+            System.out.println("SquadSize = " + abundanceConfigurations.get(i).getSquadSize());
+        }
+
+        for (int i = 0; i < abundanceConfigurations.size(); i++) {
+            AbundanceConfiguration abundanceConfiguration = abundanceConfigurations.get(i);
+            if (squadSize < abundanceConfiguration.getSquadSize()) {
+                return abundanceConfiguration.getTitle();
+            }
+        }
+        return "Какая-то фигня.";
+    }
 }
